@@ -17,3 +17,7 @@ html {
 body {
   height: 100%;
 }
+.active {
+  background: #000;
+  border-radius: 10px;
+}

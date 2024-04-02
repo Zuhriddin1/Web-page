@@ -1,10 +1,13 @@
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./pages/LogIn/Login";
 import Register from "./pages/Register/Register.jsx";
-import Home from "./pages/HomePage/Home";
+import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
 import Basket from "./components/Basket/Basket";
+import About from "./pages/About/About";
+import AboutCard from "./pages/AboutCard/AboutCard";
+import Info from "./pages/InfoCard/Info";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const navigate = useNavigate();
@@ -14,30 +17,8 @@ function App() {
       setToken(storedToken);
     }
   }, []);
-  // const isAuthenticated = token;
-
-  // // function ProtectedRoute({ children }) {
-  // //   if (!isAuthenticated) {
-  // //     navigate("/login");
-  // //     return null;
-  // //   }
-  // //   return children;
-  // // }
   return (
     <>
-      {/* <header>
-        <div className="flex flex-row">
-          <Link to={"https://react-vite-comfy-store-v2.netlify.app/"}>
-            <h1 className="bg-primary dark:bg-secondary flex w-14 pl-3.5 mt-10 font-extrabold text-black rounded-xl p-3 text-4xl">
-              C
-            </h1>
-          </Link>
-          <ul className="flex flex-row">
-            <li className="flex">salom</li>
-            <li className="flex">hair</li>
-          </ul>
-        </div>
-      </header> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -49,11 +30,13 @@ function App() {
             //protect Route
           }
         />
+        <Route path="/about" element={<About></About>}></Route>
         <Route
-          path="/products"
+          path="/products"  
           element={<>{<Products />}</>}
           //protect Route
         />
+        <Route path="/card/:id" element={<Info></Info>}></Route>
         <Route path="*" element={<Error />} />{" "}
       </Routes>
     </>
