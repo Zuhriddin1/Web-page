@@ -3,7 +3,7 @@ import React from "react";
 function Card(props) {
   const { image, title, price } = props.data;
   return (
-    <div className="">
+    <div className="flex flex-wrap gap-4 justify-center items-center align-middle  mt-16">
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="cursor-pointer rounded-xl" />

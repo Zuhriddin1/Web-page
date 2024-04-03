@@ -1,7 +1,18 @@
+import { useNavigate } from "react-router-dom";
 function AboutCard(props) {
-  const { image, title, price } = props.data; 
+  const { id } = props.data;
+  const { image, title, price } = props.data.attributes;
+  const navigate = useNavigate();
+
+  function handleRedirect() {
+    navigate(`/product/${id}`);
+  }
+
   return (
-    <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
+    <div
+      onClick={handleRedirect}
+      className="flex flex-wrap gap-4 justify-center items-center align-middle  mt-36"
+    >
       <div className="card w-full shadow-xl hover:shadow-2xl transition duration-300">
         <div className="card w-96 bg-base-100 shadow-xl ">
           <figure className="px-10 pt-10">
@@ -22,5 +33,4 @@ function AboutCard(props) {
     </div>
   );
 }
-
 export default AboutCard;

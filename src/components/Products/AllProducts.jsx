@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AboutCard from "../../pages/AboutCard/AboutCard";
-import { space } from "postcss/lib/list";
+import { SyncLoader } from "react-spinners";
 function AllProducts() {
   const [mebel, setMebel] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,16 +19,12 @@ function AllProducts() {
       });
   }, []);
   return (
-    <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 ml-[220px] mr-[220px]">
+    <div className="flex flex-wrap gap-4 justify-center items-center align-middle ">
+      {loading && <SyncLoader size={21} className="mt-[250px]" />}
       {mebel &&
-        mebel.map((el, index) => {
+        mebel.map((product, index) => {
           return (
-            <>
-              {loading && <span>Loading</span>}
-              {!loading && (
-                <AboutCard key={index} data={el.attributes}></AboutCard>
-              )}
-            </>
+            <>{!loading && <AboutCard key={index} data={product}></AboutCard>}</>
           );
         })}
     </div>

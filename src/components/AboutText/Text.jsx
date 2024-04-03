@@ -1,16 +1,16 @@
-import React from "react";
-
+import { useTranslation } from "react-i18next";
 function Text() {
+  const { t, i18n } = useTranslation();
   return (
     <section className="py-20 items-center flex flex-wrap flex-row">
       <div className=" text-white translate-x-[600px] flex flex-row gap-2 sm:gap-x-6  items-center justify-center">
         <h1 className="text-4xl font-bold leading-none tracking-tight sm:text-6xl">
-          We love
+          {t("We love")}
         </h1>
         <div className="stats bg-primary shadow  dark:bg-secondary">
           <div className="stat">
             <div className="stat-title text-primary-content text-4xl font-bold tracking-widest cursor-pointer">
-              comfy
+              {t("Comfy")}
             </div>
           </div>
         </div>

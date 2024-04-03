@@ -1,0 +1,68 @@
+{
+  "en": {
+    "translation": {
+      "Home": "Home",
+      "About": "About",
+      "Products": "Products",
+      "Card": "Card",
+      "Register": "Register",
+      "LogIn": "Log in",
+      "We are changing": "We are changing",
+      "the way people shop": "the way people shop",
+      "Lorem": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.",
+      "OUR PRODUCTS": "OUR PRODUCTS",
+      "Featured Products": "Featured Products",
+      "Avant-Garde Lamp": "Avant-Garde Lamp",
+      "Coffee Table": "Coffee Table",
+      "Comfy Bed": "Comfy Bed",
+      "We love": "We love",
+      "Comfy": "Comfy",
+      "Lorem2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quae quam blanditiis vitae, dolor non eveniet ipsum voluptatibus, quia optio aut! Perferendis ipsa cumque ipsam nostrum reprehenderit ad illo sed officiis ea tempore! Similique eos minima sit porro, ratione aspernatur!",
+      "22 products": "22 products"
+    }
+  },
+  "uz": {
+    "translation": {
+      "Home": "Bosh sahifa",
+      "About": "Haqida",
+      "Products": "Mahsulotlar",
+      "Card": "Mahsulot",
+      "Register": "Qayt etish",
+      "We are changing": "Biz o'zgaryapmiz",
+      "the way people shop": "odamlar xarid qilish usuli",
+      "Lorem": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.",
+      "OUR PRODUCTS": "MAHSULOTLARIMIZ",
+      "Featured Products": "Tanlangan mahsulotlar",
+      "Avant-Garde Lamp": "Avangard chiroq",
+      "Coffee Table": "Qahva stoli",
+      "Comfy Bed": "Qulay Yotoq",
+      "LogIn": "Kirish",
+      "We love": "Biz sevamiz",
+      "Comfy": "Qulay",
+      "Lorem2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quae quam blanditiis vitae, dolor non eveniet ipsum voluptatibus, quia optio aut! Perferendis ipsa cumque ipsam nostrum reprehenderit ad illo sed officiis ea tempore! Similique eos minima sit porro, ratione aspernatur!",
+      "22 products": "22 Mahsulot"
+    }
+  },
+  "ru": {
+    "translation": {
+      "Home": "Главный меню",
+      "About": "Об страницу",
+      "Products": "Товары",
+      "Card": "Товара",
+      "Register": "Регистрация",
+      "We are changing": "Мы меняем",
+      "the way people shop": "как люди делают покупки",
+      "Lorem": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.",
+      "OUR PRODUCTS": "НАШИ ПРОДУКТЫ",
+      "LogIn": "Вход",
+      "Featured Products": "Рекомендуемые продукты",
+      "Avant-Garde Lamp": "Авангардный светильник",
+      "Coffee Table": "Кофейный столик",
+      "Comfy Bed": "Удобная кровать",
+      "We love": "Мы любим",
+      "Comfy": "Удобный",
+      "Lorem2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quae quam blanditiis vitae, dolor non eveniet ipsum voluptatibus, quia optio aut! Perferendis ipsa cumque ipsam nostrum reprehenderit ad illo sed officiis ea tempore! Similique eos minima sit porro, ratione aspernatur!",
+      "22 products": "22 Товар"
+    }
+  }
+}
