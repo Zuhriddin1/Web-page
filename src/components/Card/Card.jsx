@@ -1,5 +1,3 @@
-import React from "react";
-
 function Card(props) {
   const { image, title, price } = props.data;
   return (

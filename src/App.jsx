@@ -1,6 +1,6 @@
 import "./i18n";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from "./pages/LogIn/Login";
 import Register from "./pages/Register/Register.jsx";
 import Home from "./pages/Home/Home";
@@ -19,6 +19,7 @@ function App() {
   }, []);
   return (
     <>
+
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

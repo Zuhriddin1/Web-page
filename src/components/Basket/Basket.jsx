@@ -1,6 +1,6 @@
 import Order from "../../assets/Basket.jpeg";
 import Header from "../Header/Header";
-
+import { Link } from "react-router-dom";
 function Basket() {
   return (
     <>
@@ -53,10 +53,42 @@ function Basket() {
                       <option value="10">10</option>
                       <option value="11">11</option>
                     </select>
+                    <button className="mt-2 link link-primary link-hover text-sm">
+                      remove
+                    </button>
+                    <p className="font-medium mr-11 sm:ml-auto">$339.99</p>
                   </div>
                 </div>
               </div>
             </article>
+          </div>
+          <div className="lg:col-span-4 lg:pl-4 ">
+            <div className="card bg-slate-800">
+              <div className="card-body">
+                <p className="flex justify-between text-xs border-b border-base-300 pb-2">
+                  <span>Subtotal</span>
+                  <span className="font-medium">$4,579.79</span>
+                </p>
+                <p className="flex justify-between text-xs border-b border-base-300 pb-2">
+                  <span>Shipping</span>
+                  <span className="font-medium">$5.00</span>
+                </p>
+                <p className="flex justify-between text-xs border-b border-base-300 pb-2">
+                  <span>Tax</span>
+                  <span className="font-medium">$457.98</span>
+                </p>
+                <p className="flex justify-between text-sm mt-4 pb-2">
+                  <span>Order Total</span>
+                  <span className="font-medium">$5,042.77</span>
+                </p>
+              </div>
+            </div>
+            <Link
+              to={"/"}
+              className={"uppercase  mt-9  w-[320px] btn btn-secondary"}
+            >
+              proceed to checkout
+            </Link>
           </div>
         </div>
       </div>
