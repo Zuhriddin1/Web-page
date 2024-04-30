@@ -7,6 +7,9 @@ function Detail() {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
+  function handleClick() {
+    alert("This product is add  ");
+  }
   useEffect(() => {
     if (id) {
       setLoading(true);
@@ -108,7 +111,10 @@ function Detail() {
               </div>
               <div className="linked">
                 <NavLink to="/basket">
-                  <button className="uppercase btn text-white btn-primary">
+                  <button
+                    onClick={handleClick}
+                    className="uppercase btn text-white btn-primary"
+                  >
                     add to bag
                   </button>
                 </NavLink>

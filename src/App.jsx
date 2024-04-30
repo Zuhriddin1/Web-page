@@ -10,7 +10,6 @@ import About from "./pages/About/About";
 import Detail from "./pages/PageDetale/Detail";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const navigate = useNavigate();
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -19,7 +18,6 @@ function App() {
   }, []);
   return (
     <>
-
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -28,7 +26,7 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/products" element={<>{<Products />}</>} />
         <Route path="/product/:id" element={<Detail></Detail>}></Route>
-        <Route path="*" element={<Error />} />{" "}
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

@@ -24,7 +24,9 @@ function AllProducts() {
       {mebel &&
         mebel.map((product, index) => {
           return (
-            <>{!loading && <AboutCard key={index} data={product}></AboutCard>}</>
+            <>
+              {!loading && <AboutCard key={index} data={product}></AboutCard>}
+            </>
           );
         })}
     </div>
