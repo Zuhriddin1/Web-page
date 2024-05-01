@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Login() {
   const [loading, setLoading] = useState();
   const UserName = useRef("");
@@ -24,41 +26,15 @@ function Login() {
       } else {
         alert("Please enter true Password or Email");
       }
-      //   fetch("https://auth-rg69.onrender.com/api/auth/signin", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-type": "application/json",
-      //     },
-      //     body: JSON.stringify(user),
-      //   })
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       if (data.message) {
-      //         if (data.id) {
-      //           localStorage.setItem("token", data.accessToken);
-      //           localStorage.setItem("user", data);
-      //           navigate("/");
-      //         }
-      //         if (data.message == "User Not found.") {
-      //           alert(data.message);
-      //           UserName.current.focus();
-      //         }
-      //         if (data.message == "Invalid Password!") {
-      //           alert(data.message);
-      //           UserPassword.current.focus();
-      //         }
-      //       }
-      //       UserName.current.value = "";
-      //       UserPassword.current.value = "";
-      //     })
-      //     .catch((err) => {
-      //       console.log(err);
-      //     })
-      //     .finally(() => {
-      //       setLoading(false);
-      //     });
-      // }
     }
+  }
+  function handleClick() {
+    setTimeout(() => {
+      navigate("/");
+      setTimeout(() => {
+        toast.success("Welcome guest user");
+      }, 200);
+    }, 600);
   }
   return (
     <>
@@ -95,14 +71,14 @@ function Login() {
               >
                 {loading ? "Loading..." : "REGISTER"}
               </button>
-              <Link to={"/"}>
-                <button
-                  className="btn mt-3 bg-purple-600 m b-3 hover:bg-purple-800 dark:bg-purple-600 dark:text-white btn-block uppercase"
-                  type="submit"
-                >
-                  guest user
-                </button>
-              </Link>
+
+              <button
+                onClick={handleClick}
+                className="btn mt-3 bg-purple-600 m b-3 hover:bg-purple-800 dark:bg-purple-600 dark:text-white btn-block uppercase"
+                type="submit"
+              >
+                guest user
+              </button>
             </div>
             <p className="mt-5">
               Already a new member?
