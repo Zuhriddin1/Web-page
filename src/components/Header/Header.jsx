@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ThemeContext } from "../../App";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SlBasket } from "react-icons/sl";
 import { NavLink, Link } from "react-router-dom";
 function Header() {
   const { t, i18n } = useTranslation();
+  const theme = useContext(ThemeContext);
   const [lang, setLang] = useState("uz");
   function handleClick(e) {
     setLang(e.target.value);
@@ -24,7 +26,9 @@ function Header() {
       <div className="flex justify-end mt-2 mr-44 gap-7 underline">
         <NavLink
           to={"/register"}
-          className="p-2 hover:bg-slate-600  rounded-full"
+          className={`p-2 hover:bg-slate-600 ${
+            theme.theme == "light" ? "text-black" : "text-white"
+          }  rounded-full`}
         >
           {/* Register */}
           {t("Register")}
@@ -34,7 +38,11 @@ function Header() {
           {t("LogIn")}
         </NavLink>
       </div>
-      <div className="mt-5 pt-4 pb-4 flex bg-slate-100 dark:bg-gray-900 items-center">
+      <div
+        className={`mt-5 pt-4 pb-4 flex ${
+          theme.theme == "light" ? "bg-slate-100" : "bg-neutral"
+        } items-center`}
+      >
         <NavLink to={"https://react-vite-comfy-store-v2.netlify.app/"}>
           <h1 className="btn-primary dark:btn-secondary inline p-3  ml-[220px] pr-4 pl-4  btn text-black font-medium pt-2 pb-2 text-3xl">
             C
@@ -42,25 +50,41 @@ function Header() {
         </NavLink>
         <ul className="flex items-center gap-5 cursor-pointer">
           <Link to={"/"}>
-            <li className="p-4 rounded-xl  hover:bg-gray-800 ml-[280px] hover:dark:bg-gray-600">
+            <li
+              className={`p-4 rounded-xl ${
+                theme.theme == "light" ? "text-neutral-500" : "text-white"
+              }  hover:bg-gray-800 ml-[280px] hover:dark:bg-gray-600`}
+            >
               {/* Home */}
               {t("Home")}
             </li>
           </Link>
           <NavLink to={"/about"}>
-            <li className="p-4 rounded-xl  hover:bg-gray-800 hover:dark:bg-gray-600">
+            <li
+              className={`p-4 rounded-xl ${
+                theme.theme == "light" ? "text-neutral-500" : "text-white"
+              } hover:bg-gray-800 hover:dark:bg-gray-600`}
+            >
               {/* About */}
               {t("About")}
             </li>
           </NavLink>
           <NavLink to={"/products"}>
-            <li className="p-4 rounded-xl  hover:bg-gray-800 hover:dark:bg-gray-600">
+            <li
+              className={`p-4 rounded-xl  ${
+                theme.theme == "light" ? "text-neutral-500" : "text-white"
+              } hover:bg-gray-800 hover:dark:bg-gray-600`}
+            >
               {/* Products */}
               {t("Products")}
             </li>
           </NavLink>
           <NavLink to={"/basket"}>
-            <li className="p-4  rounded-xl hover:bg-gray-800 hover:dark:bg-gray-600">
+            <li
+              className={`p-4  ${
+                theme.theme == "light" ? "text-neutral-500" : "text-white"
+              } rounded-xl hover:bg-gray-800 hover:dark:bg-gray-600`}
+            >
               {/* Card */}
               {t("Card")}
             </li>
@@ -72,6 +96,11 @@ function Header() {
               type="checkbox"
               className="theme-controller"
               value="synthwave"
+              onChange={(e) => {
+                e.target.checked
+                  ? theme.setTheme("dark")
+                  : theme.setTheme("light");
+              }}
             />
 
             <svg

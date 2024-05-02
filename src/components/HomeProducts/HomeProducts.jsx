@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { FadeLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../../App";
 function HomeProducts() {
+  const theme = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
   const [feature, setFeature] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -20,8 +22,13 @@ function HomeProducts() {
   }, []);
   return (
     <>
+      {/* ${theme.theme == "light" ? "bg-slate-100" : "bg-neutral"} */}
       <div className="border-b border-base-300 pb-5">
-        <h1 className="pt-24 ml-[220px] text-white text-3xl font-medium tracking-wider capitalize ">
+        <h1
+          className={`pt-24 ml-[220px] 
+          ${theme.theme == "light" ? "text-black" : "text-white"} 
+            text-3xl font-medium tracking-wider capitalize`}
+        >
           {/* Featured Products */}
           {t("Featured Products")}
         </h1>

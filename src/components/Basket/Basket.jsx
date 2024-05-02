@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import Order from "../../assets/Basket.jpeg";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../App";
 function Basket() {
+  const theme = useContext(ThemeContext);
   return (
     <>
       <Header></Header>
@@ -63,7 +66,11 @@ function Basket() {
             </article>
           </div>
           <div className="lg:col-span-4 lg:pl-4 ">
-            <div className="card bg-slate-800">
+            <div
+              className={`card ${
+                theme.theme == "light" ? "text-white bg-slate-700" : "text-white bg-slate-700"
+              }`}
+            >
               <div className="card-body">
                 <p className="flex justify-between text-xs border-b border-base-300 pb-2">
                   <span>Subtotal</span>
