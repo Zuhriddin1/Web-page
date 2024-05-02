@@ -3,6 +3,7 @@ import { ThemeContext } from "../../App";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SlBasket } from "react-icons/sl";
+import { ToastContainer } from "react-toastify";
 import { NavLink, Link } from "react-router-dom";
 function Header() {
   const { t, i18n } = useTranslation();
@@ -23,6 +24,19 @@ function Header() {
   }, []);
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
       <div className="flex justify-end mt-2 mr-44 gap-7 underline">
         <NavLink
           to={"/register"}

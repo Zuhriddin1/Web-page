@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import { ThemeContext } from "../../App";
 function Detail() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const theme = useContext(ThemeContext);
   const navigate = useNavigate();
-  function handleClick() {
-    alert("This product is add  ");
-  }
   useEffect(() => {
     if (id) {
       setLoading(true);
@@ -40,7 +41,13 @@ function Detail() {
       navigate("/");
     }
   }, [id]);
-
+  function handleClick() {
+    setTimeout(() => {
+      setTimeout(() => {
+        toast.success("This product is add");
+      }, 200);
+    }, 600);
+  }
   return (
     <div>
       <Header></Header>
@@ -76,12 +83,34 @@ function Detail() {
               />
             </div>
             <div className="desc-side pt-20 w-[50%]">
-              <h2 className=" text-white font-extrabold text-2xl">
+              <h2
+                className={`${
+                  theme.theme == "light" ? "text-black" : "text-white"
+                } font-extrabold text-2xl`}
+              >
                 {product.title}
               </h2>
-              <p className="text-xl text-white">{product.company}</p>
-              <p className="text-2xl text-white">${product.price}</p>
-              <p className="text-white w-[90%] mt-4">{product.description}</p>
+              <p
+                className={`text-xl ${
+                  theme.theme == "light" ? "text-black" : "text-white"
+                }`}
+              >
+                {product.company}
+              </p>
+              <p
+                className={`text-2xl ${
+                  theme.theme == "light" ? "text-black" : "text-white"
+                }`}
+              >
+                ${product.price}
+              </p>
+              <p
+                className={`${
+                  theme.theme == "light" ? "text-black" : "text-white"
+                } w-[90%] mt-4`}
+              >
+                {product.description}
+              </p>
               <h4 className="mt-4 mb-2">Colors</h4>
               <span className="badge badge-error ml-2 hover:border-white cursor-pointer"></span>
               <span className="badge badge-success ml-2 hover:border-white cursor-pointer"></span>
