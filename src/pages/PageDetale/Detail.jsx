@@ -8,6 +8,8 @@ import { ThemeContext } from "../../App";
 function Detail() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("");
+  const [count, setCount] = useState(1);
   const { id } = useParams();
   const theme = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -42,11 +44,21 @@ function Detail() {
     }
   }, [id]);
   function handleClick() {
-    setTimeout(() => {
-      setTimeout(() => {
-        toast.success("This product is add");
-      }, 200);
-    }, 600);
+    const productsData = {
+      id: id,
+      title: product.title,
+      price: product.price,
+      color: selectedColor,
+      amount: count,
+      image: product.image,
+      company: product.company,
+      tax: 5,
+      shipping: product.shipping,
+    };
+    const storedProducts = JSON.parse(localStorage.getItem("cart")) || [];
+    storedProducts.push(productsData);
+    localStorage.setItem("cart", JSON.stringify(storedProducts));
+    toast.success("This product is added to the cart");
   }
   return (
     <div>
@@ -70,7 +82,7 @@ function Detail() {
             <div className="image-side ml-40 w-[50%] mt-10">
               <ul className="flex gap-4 mb-4">
                 <li className="ml-5">
-                  <Link to={"/"}>Home {"        >"}</Link>
+                  <Link to={"/"}>Home {"           >"}</Link>
                 </li>
                 <li>
                   <Link to={"/products"}>Products</Link>

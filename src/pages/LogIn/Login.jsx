@@ -1,8 +1,10 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeContext } from "../../App";
 function Login() {
+  const theme = useContext(ThemeContext);
   const [loading, setLoading] = useState();
   const UserName = useRef("");
   const UserPassword = useRef("");
@@ -28,6 +30,14 @@ function Login() {
       }
     }
   }
+  function handleClickTwo() {
+    setTimeout(() => {
+      navigate("/");
+      setTimeout(() => {
+        toast.success("Welcome user");
+      }, 200);
+    }, 600);
+  }
   function handleClick() {
     setTimeout(() => {
       navigate("/");
@@ -38,10 +48,18 @@ function Login() {
   }
   return (
     <>
-      <div className="container flex items-center justify-center ml-[0px] mt-[50px] text-white">
+      <div
+        className={`container flex items-center ${
+          theme.theme == "light" ? "text-black" : "text-white"
+        } justify-center ml-[0px] mt-[50px]`}
+      >
         <section className="h-screenreen grid place-items-center">
           <form className="card p-8" onSubmit={handleSubmit}>
-            <h4 className="text-center text-3xl font-bold block mt-16 text-white">
+            <h4
+              className={`text-center ${
+                theme.theme == "light" ? "text-black" : "text-white"
+              } text-3xl font-bold block mt-16 `}
+            >
               Log in
             </h4>
             <div className="mb-3 mt-3">
@@ -83,6 +101,7 @@ function Login() {
             <p className="mt-5">
               Already a new member?
               <NavLink
+                onClick={handleClickTwo}
                 to={"/register"}
                 className="ml-5 hover:bg-slate-700 p-3 rounded-lg"
               >

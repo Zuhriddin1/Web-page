@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../../App";
 function Register() {
+  const theme = useContext(ThemeContext);
   const [loading, setLoading] = useState();
   const UserName = useRef("");
   const UserEmail = useRef("");
@@ -22,44 +25,22 @@ function Register() {
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/login");
       setLoading(false);
-      // fetch("https://auth-rg69.onrender.com/api/auth/signup", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-type": "application/json",
-      //   },
-      //   body: JSON.stringify(user),
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     if (data.messega == "User registered successfully!") {
-      //       navigate("/login");
-      //     }
-      //     if (data.messega == "Failed! Email is already in use!") {
-      //       alert(data.messega);
-      //       UserEmail.current.focus();
-      //     }
-      //     if (data.messega == "Failed! Username is already in use!") {
-      //       alert(data.messega);
-      //       UserName.current.focus();
-      //     }
-      //     UserName.current.value = "";
-      //     UserEmail.current.value = "";
-      //     UserPassword.current.value = "";
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   })
-      //   .finally(() => {
-      //     setLoading(false);
-      //   });
     }
   }
   return (
     <>
-      <div className="container flex items-center justify-center ml-[0px] mt-[30px] text-white">
+      <div
+        className={`container ${
+          theme.theme == "light" ? "text-black" : "text-white"
+        } flex items-center justify-center ml-[0px] mt-[30px]`}
+      >
         <section className="h-screenreen grid place-items-center">
           <form className="card p-8" onSubmit={handleSubmit}>
-            <h4 className="text-center text-3xl font-bold block mt-16 text-white">
+            <h4
+              className={`text-center ${
+                theme.theme == "light" ? "text-black" : "text-white"
+              } text-3xl font-bold block mt-16 `}
+            >
               Register
             </h4>
             <div className="mb-3 mt-3">
